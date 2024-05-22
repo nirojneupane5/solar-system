@@ -1,3 +1,4 @@
+import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -13,7 +14,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes:{
+        "rotate":{
+          "0%":{transform:"rotate(0deg) translateX(100px) rotate(0deg)"},
+          "100%":{transform:"rotate(360deg) translateX(100px) rotate(-360deg)"}
+        }
+      },
+      animation:{
+        "rotate":"rotate 10s linear infinite"
+      }
     },
+    
   },
   plugins: [],
 };
